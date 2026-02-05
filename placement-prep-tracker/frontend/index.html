@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Placement Preparation Tracker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header class="header">
+        <div class="container">
+            <div class="header-content">
+                <div class="brand">
+                    <h1>📚 Placement Preparation Tracker</h1>
+                    <p class="subtitle">Track your DSA preparation consistently</p>
+                </div>
+                <div class="user-profile">
+                    <span class="welcome-text">Welcome, <span id="userName">Student</span></span>
+                    <button id="editNameBtn" class="btn-ghost">Edit</button>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="main-container">
+        <div class="container">
+            <!-- Home Page -->
+            <div id="homePage" class="page active">
+                <!-- Dashboard Overview -->
+                <section class="dashboard-overview">
+                    <!-- Streak Card -->
+                    <div class="stat-card streak-card">
+                        <div class="stat-icon">🔥</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="streakCount">0</h3>
+                            <p class="stat-label">Day Streak</p>
+                        </div>
+                    </div>
+
+                    <!-- Progress Card -->
+                    <div class="stat-card progress-card">
+                        <div class="stat-icon">📊</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="progressPercent">0%</h3>
+                            <p class="stat-label">DSA Progress</p>
+                            <div class="mini-progress">
+                                <div class="mini-progress-fill" id="miniProgressFill"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Problems Card -->
+                    <div class="stat-card problems-card">
+                        <div class="stat-icon">✅</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="solvedProblems">0</h3>
+                            <p class="stat-label">Problems Solved</p>
+                        </div>
+                    </div>
+
+                    <!-- Timer Card -->
+                    <div class="stat-card timer-card">
+                        <div class="stat-icon">⏱️</div>
+                        <div class="stat-content">
+                            <h3 class="stat-number" id="timerDisplay">01:00</h3>
+                            <p class="stat-label">Study Timer</p>
+                            <div class="timer-controls">
+                                <button id="startTimer" class="btn-timer">Start</button>
+                                <button id="pauseTimer" class="btn-timer">Pause</button>
+                                <button id="resetTimer" class="btn-timer">Reset</button>
+                                <button id="setTimer" class="btn-timer">Set</button>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                <!-- DSA Topics Section -->
+                <section class="topics-section">
+                    <div class="section-header">
+                        <h2>📚 DSA Topics</h2>
+                        <p class="section-subtitle">Click on any topic to view problems</p>
+                    </div>
+                    
+                    <div class="topics-grid" id="topicsGrid">
+                        <!-- Topics will be loaded dynamically -->
+                    </div>
+                </section>
+
+                <!-- Quick Actions -->
+                <section class="quick-actions">
+                    <div class="action-card" onclick="showPage('goals')">
+                        <div class="action-icon">🎯</div>
+                        <h3>Daily Goals</h3>
+                        <p>Manage your daily preparation goals</p>
+                    </div>
+                </section>
+            </div>
+
+            <!-- Goals Page -->
+            <div id="goalsPage" class="page">
+                <div class="page-header">
+                    <button onclick="showPage('home')" class="btn-back">← Back to Home</button>
+                    <div class="page-info">
+                        <h2>🎯 Daily Goals</h2>
+                        <p>Set and track your daily preparation goals</p>
+                    </div>
+                </div>
+
+                <div class="add-goal-card">
+                    <div class="goal-input-group">
+                        <input type="text" id="goalInput" placeholder="What do you want to achieve today?" maxlength="100">
+                        <button id="addGoalBtn" class="btn-primary">
+                            <span>Add Goal</span>
+                            <span class="btn-icon">+</span>
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="goals-container" id="goalsList">
+                    <!-- Goals will be loaded dynamically -->
+                </div>
+            </div>
+
+            <!-- Topic Problems Page -->
+            <div id="topicPage" class="page">
+                <div class="topic-header">
+                    <button id="backToHome" class="btn-back">← Back to Topics</button>
+                    <div class="topic-info">
+                        <h2 id="topicTitle">Arrays</h2>
+                        <p id="topicDescription">Array manipulation and algorithms</p>
+                        <div class="topic-stats">
+                            <span id="topicProgress">0/10 problems solved</span>
+                            <div class="progress-bar-topic">
+                                <div class="progress-fill-topic" id="topicProgressBar"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="problems-container">
+                    <div class="problems-header">
+                        <h3>Problems</h3>
+                        <div class="difficulty-filter">
+                            <button class="filter-btn active" data-difficulty="all">All</button>
+                            <button class="filter-btn" data-difficulty="easy">Easy</button>
+                            <button class="filter-btn" data-difficulty="medium">Medium</button>
+                            <button class="filter-btn" data-difficulty="hard">Hard</button>
+                        </div>
+                    </div>
+                    
+                    <div class="problems-list" id="problemsList">
+                        <!-- Problems will be loaded dynamically -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modals -->
+    <div class="modal-overlay" id="nameModal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>Edit Your Name</h3>
+                <button class="btn-close" id="cancelNameBtn">×</button>
+            </div>
+            <div class="modal-body">
+                <input type="text" id="nameInput" placeholder="Enter your name" maxlength="50">
+            </div>
+            <div class="modal-footer">
+                <button id="saveNameBtn" class="btn-primary">Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Spinner -->
+    <div class="loading-overlay" id="loading">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading...</p>
+        </div>
+    </div>
+
+    <!-- Toast Notifications -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>

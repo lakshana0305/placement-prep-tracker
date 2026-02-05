@@ -1,0 +1,73 @@
+{
+  "user": {
+    "name": "Lakshana",
+    "lastActiveDate": "2026-02-05"
+  },
+  "streak": {
+    "count": 1,
+    "lastDate": "2026-02-05"
+  },
+  "topics": [
+    {
+      "id": 1,
+      "name": "Arrays",
+      "completed": false,
+      "description": "Array manipulation, searching, and sorting algorithms"
+    },
+    {
+      "id": 2,
+      "name": "Strings",
+      "completed": false,
+      "description": "String operations, pattern matching, and manipulation"
+    },
+    {
+      "id": 3,
+      "name": "Linked Lists",
+      "completed": false,
+      "description": "Singly, doubly, and circular linked list operations"
+    },
+    {
+      "id": 4,
+      "name": "Stacks",
+      "completed": false,
+      "description": "LIFO operations, expression evaluation, and stack applications"
+    },
+    {
+      "id": 5,
+      "name": "Queues",
+      "completed": false,
+      "description": "FIFO operations, circular queues, and priority queues"
+    },
+    {
+      "id": 6,
+      "name": "Trees",
+      "completed": false,
+      "description": "Binary trees, BST, tree traversals, and tree algorithms"
+    },
+    {
+      "id": 7,
+      "name": "Dynamic Programming",
+      "completed": false,
+      "description": "Optimization problems, memoization, and DP patterns"
+    }
+  ],
+  "goals": [
+    {
+      "id": 1,
+      "text": "Solve 5 array problems",
+      "date": "2024-01-01",
+      "completed": false
+    },
+    {
+      "id": 1770308606657,
+      "text": "arrays complete",
+      "date": "2026-02-05",
+      "completed": false
+    }
+  ],
+  "problems": {},
+  "timer": {
+    "lastSession": null,
+    "totalMinutes": 0
+  }
+}
